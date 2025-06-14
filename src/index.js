@@ -1,11 +1,11 @@
-// index.js - Entry point for React App
+// ✅ Entry point for React App
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals'; // ✅ Moved import to the top
+import reportWebVitals from './reportWebVitals'; // ✅ Optional: performance metrics
 
-// Create and render root React component
+// ✅ Create React root and render the App component
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -13,5 +13,5 @@ root.render(
   </React.StrictMode>
 );
 
-// Log metrics in the console
+// ✅ Log web vitals (optional)
 reportWebVitals(console.log);

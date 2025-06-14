@@ -3,7 +3,7 @@ import axios from 'axios';
 import './App.css';
 import logo from './logo.svg'; // Custom logo file
 
-// ✅ Load API URL from .env file
+// ✅ Load API URL from environment variable
 const apiUrl = process.env.REACT_APP_API_URL;
 
 function App() {
@@ -40,6 +40,7 @@ function App() {
       <div className="chat-container">
         <img src={logo} alt="AI Logo" className="app-logo" />
         <h2>🤖 AI ChatBot</h2>
+
         <div className="chat-box">
           {messages.map((msg, idx) => (
             <div key={idx} className={msg.role}>
@@ -48,6 +49,7 @@ function App() {
           ))}
           {isLoading && <div className="bot">Typing...</div>}
         </div>
+
         <input
           type="text"
           value={input}
