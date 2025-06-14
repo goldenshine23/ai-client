@@ -3,6 +3,8 @@ import axios from 'axios';
 import './App.css';
 import logo from './logo.svg'; // Custom logo file
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 function App() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
@@ -17,9 +19,7 @@ function App() {
     setIsLoading(true);
 
     try {
-      const res = await axios.post("https://ai-chat-app-goil.onrender.com/chat", {
-        message: userInput
-      });
+      const res = await axios.post(`${apiUrl}/chat`, { message: userInput });
 
       setMessages(prev => [...prev, { role: "bot", text: res.data.reply }]);
     } catch (error) {
