@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import logo from './logo.svg'; // Custom logo file
 
+// ✅ Load API URL from .env file
 const apiUrl = process.env.REACT_APP_API_URL;
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
     try {
       const res = await axios.post(`${apiUrl}/chat`, { message: userInput });
 
-      setMessages(prev => [...prev, { role: "bot", text: res.data.reply }]);
+      const reply = res.data?.reply || "🤖 No response from server.";
+      setMessages(prev => [...prev, { role: "bot", text: reply }]);
     } catch (error) {
       console.error("API call failed:", error.response?.data || error.message);
       setMessages(prev => [
